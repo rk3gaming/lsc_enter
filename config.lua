@@ -1,3 +1,5 @@
+Config = {}
+
 -- coords = Door Location
 -- enterCoords = The interior where they get sent to
 -- exitCoords = Where in the interior they can use /exit at to leave
