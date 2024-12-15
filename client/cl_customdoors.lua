@@ -3,11 +3,10 @@ Config.Doors = Config.Doors or {}
 Config.Shells = Config.Shells or {}
 
 local lastMessageTime = 0
-local activeSession = nil -- Tracks the current door/shell the player is in
+local activeSession = nil 
 local spawnedShells = {}
 
 Citizen.CreateThread(function()
-    -- Spawn shells on start
     for _, shell in ipairs(Config.Shells) do
         if shell.shellModel and not spawnedShells[shell.coords] then
             RequestModel(GetHashKey(shell.shellModel))
@@ -22,7 +21,6 @@ Citizen.CreateThread(function()
         end
     end
 
-    -- Notify about nearby doors and shells
     while true do
         Citizen.Wait(1000)
 
