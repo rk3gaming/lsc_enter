@@ -136,9 +136,13 @@ RegisterCommand("exit", function()
 
             TriggerEvent('av_weather:freeze', false, 0, 0, "CLEAR", false, "normal", false)
             
+            -- This should make them "Not in their own world" anymore upon exit.
+            TriggerServerEvent('customdoors:resetRoutingBucket')
+
             return
         end
     end
 
     TriggerEvent('chatMessage', '', {255, 255, 255}, '^1[ERROR]: ^0You are not near any exit point.')
 end, false)
+
